@@ -1,4 +1,7 @@
-import BoardColumn from "@/components/board/BoardColumn";
+"use client";
+
+// import BoardColumn from "@/components/board/BoardColumn";
+import Kanban from "@/components/board/Kanban";
 
 export default function BoardPage() {
   return (
@@ -6,10 +9,8 @@ export default function BoardPage() {
       {/* Breadcrumb */}
       {/* Title */}
       {/* Filters */}
-      {/* Lists */}
-      <div className="grid grid-cols-4 gap-4">
-        <BoardColumn id="todo" title="To Do" taskIds={["1", "2", "3"]} />
-      </div>
+      {/* Kanban */}
+      <Kanban />
     </div>
   );
 }

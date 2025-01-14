@@ -1,5 +1,5 @@
 type BoardColumn = {
-  id: string;
+  status: TaskStatus;
   title: string;
   taskIds: string[];
 };
