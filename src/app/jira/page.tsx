@@ -1,5 +1,3 @@
-"use client";
-
 // import BoardColumn from "@/components/board/BoardColumn";
 import Kanban from "@/components/board/Kanban";
 
