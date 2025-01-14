@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { PiCaretDownBold as ArrowDownIcon } from "react-icons/pi";
+import { FaAngleDown as ArrowDownIcon } from "react-icons/fa";
 
 type Props = HeaderMenuDropdown;
 
@@ -26,9 +26,11 @@ const HeaderDropdown: React.FC<Props> = ({ title, items }) => {
 
   return (
     <div ref={dropdownRef} className="relative px-2">
-      <button onClick={() => setIsOpen(!isOpen)} className="transition-all flex items-center space-x-1 text-neutral-dark hover:text-neutral">
+      <button onClick={() => setIsOpen(!isOpen)} className="group transition-all flex items-center space-x-1 text-neutral-dark ">
         <span className="text-sm">{title}</span>
-        <ArrowDownIcon className={`w-3 h-3 transform transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`} />
+        <ArrowDownIcon
+          className={`w-3 h-3 transform transition-all group-hover:text-primary ${isOpen ? "rotate-180" : "rotate-0 text-neutral"}`}
+        />
       </button>
       <div
         className={`absolute z-10 w-full min-w-[200px] mt-2 bg-white rounded-lg shadow-2xl overflow-hidden transition-all duration-300 ease-in-out transform ${
