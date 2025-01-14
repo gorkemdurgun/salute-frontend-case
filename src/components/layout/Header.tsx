@@ -6,14 +6,14 @@ import { CgMenuGridR as DashboardIcon } from "react-icons/cg";
 import { FaRocket as RocketIcon, FaQuestionCircle as QuestionIcon } from "react-icons/fa";
 import { BsGearWide as SettingsIcon } from "react-icons/bs";
 
-import { headerMenuDropdownItems } from "@/constants/headerMenu";
+import { headerMenuDropdownItems } from "@/constants/menu";
 import Button from "../common/Button";
 import SearchBox from "../common/SearchBox";
 import Avatar from "../common/Avatar";
 
 const Header = () => {
   return (
-    <header className="h-[60px] flex items-center justify-between p-4 border-b border-neutral bg-white">
+    <header className="h-[60px] flex items-center justify-between p-4 border-b bg-white">
       <div className="flex items-center space-x-6">
         {/* Icon */}
         <DashboardIcon className="w-6 h-6 text-neutral-dark" />

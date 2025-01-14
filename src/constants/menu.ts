@@ -1,3 +1,15 @@
+import {
+  TbSTurnRight as RoadmapIcon,
+  TbServer as BacklogIcon,
+  TbTableDashed as BoardIcon,
+  TbChartLine as ReportsIcon,
+  TbCopy as IssuesIcon,
+  TbCode as CodeIcon,
+  TbLock as SecurityIcon,
+  TbShip as DeployIcon,
+  TbSettings as SettingsIcon,
+} from "react-icons/tb";
+
 export const headerMenuDropdownItems: HeaderMenuDropdown[] = [
   {
     title: "Your Work",
@@ -93,6 +105,68 @@ export const headerMenuDropdownItems: HeaderMenuDropdown[] = [
       {
         title: "App Item 1",
         href: "/app/1",
+      },
+    ],
+  },
+];
+
+export const sidebarMenuItems: SidebarMenu = [
+  {
+    category: "Planning",
+    items: [
+      {
+        title: "Roadmaps",
+        href: "/roadmaps",
+        icon: RoadmapIcon,
+      },
+      {
+        title: "Backlog",
+        href: "/backlog",
+        icon: BacklogIcon,
+      },
+      {
+        title: "Boards",
+        href: "/boards",
+        icon: BoardIcon,
+      },
+      {
+        title: "Reports",
+        href: "/reports",
+        icon: ReportsIcon,
+      },
+      {
+        title: "Issues",
+        href: "/issues",
+        icon: IssuesIcon,
+      },
+    ],
+  },
+  {
+    category: "Development",
+    items: [
+      {
+        title: "Code",
+        href: "/code",
+        icon: CodeIcon,
+      },
+      {
+        title: "Security",
+        href: "/security",
+        icon: SecurityIcon,
+      },
+      {
+        title: "Deploy",
+        href: "/deploy",
+        icon: DeployIcon,
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        title: "Project settings",
+        href: "/settings",
+        icon: SettingsIcon,
       },
     ],
   },
