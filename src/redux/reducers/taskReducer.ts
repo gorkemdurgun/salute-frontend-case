@@ -27,9 +27,17 @@ export const taskSlice = createSlice({
         task.status = action.payload.newStatus;
       }
     },
+    updateTaskAssignees: (state, action: PayloadAction<{ taskId: string; assigneeIds: string[] }>) => {
+      const task = state.list.find((t) => t.id === action.payload.taskId);
+      if (task) {
+        task.assigneeIds = action.payload.assigneeIds;
+      } else {
+        throw new Error("Task not found");
+      }
+    },
   },
 });
 
-export const { addNewTask, updateTaskStatus } = taskSlice.actions;
+export const { addNewTask, updateTaskStatus, updateTaskAssignees } = taskSlice.actions;
 
 export default taskSlice.reducer;

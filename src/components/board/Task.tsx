@@ -1,6 +1,6 @@
 "use client";
 
-import AvatarGroup from "../common/AvatarGroup";
+import AvatarGroup from "../common/UserGroup";
 
 import dayjs from "dayjs";
 import DatePicker from "../input/DatePicker";

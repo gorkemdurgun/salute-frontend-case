@@ -3,7 +3,10 @@
 import { PiX as CloseIcon, PiTrash as TrashIcon, PiCheck as SaveIcon } from "react-icons/pi";
 import Button from "../common/Button";
 import { useState } from "react";
+import UserGroup from "../common/UserGroup";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 import UserPicker from "../input/UserPicker";
+import { updateTaskAssignees } from "@/redux/reducers/taskReducer";
 
 type Props = {
   visible: boolean;
@@ -11,6 +14,11 @@ type Props = {
   task: Task;
 };
 const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
+  const dispatch = useAppDispatch();
+
+  const { users } = useAppSelector((state) => state.project);
+  const assigneeList = users.filter((user) => task?.assigneeIds?.includes(user.id));
+
   const [taskDetails, setTaskDetails] = useState<Task>(task);
 
   if (!visible) return null;
@@ -56,7 +64,15 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
             <label htmlFor="userList" className="text-xs text-neutral-dark">
               Atananlar
             </label>
-            <UserPicker currentUsers={taskDetails.assigneeIds} setList={(list) => setTaskDetails({ ...taskDetails, assigneeIds: list })} />
+            <div className="relative flex items-center gap-2">
+              <UserGroup users={assigneeList} />
+              <UserPicker
+                currentUsers={assigneeList}
+                onChangeList={(users) => {
+                  dispatch(updateTaskAssignees({ taskId: task.id, assigneeIds: users.map((u) => u.id) }));
+                }}
+              />
+            </div>
           </div>
         </div>
         <div className="flex items-center justify-end gap-2">
@@ -64,10 +80,10 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
             <TrashIcon className="text-lg text-danger" />
             <span className="text-sm text-danger">Sil</span>
           </Button>
-          <Button className="bg-primary">
+          {/* <Button className="bg-primary">
             <SaveIcon className="text-lg text-white" />
             <span className="text-sm text-white">Kaydet</span>
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
