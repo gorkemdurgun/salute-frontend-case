@@ -4,6 +4,7 @@ import HeaderDropdown from "./HeaderDropdown";
 
 import { CgMenuGridR as DashboardIcon } from "react-icons/cg";
 import { headerMenuDropdownItems } from "@/constants/headerMenu";
+import Button from "../common/Button";
 
 const Header = () => {
   return (
@@ -19,8 +20,9 @@ const Header = () => {
         {/* Dropdowns */}
         <div className="flex items-center space-x-1">
           {headerMenuDropdownItems.map((item, index) => (
-            <HeaderDropdown key={index} title={item.title} items={item.items} />
+            <HeaderDropdown key={index} title={item.title} items={item.items} disabled={item.disabled} />
           ))}
+          <Button className="!ml-4 bg-primary text-white text-sm">Create</Button>
         </div>
       </div>
       <div>a</div>

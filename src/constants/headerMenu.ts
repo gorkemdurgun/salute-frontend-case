@@ -80,8 +80,19 @@ export const headerMenuDropdownItems: HeaderMenuDropdown[] = [
         href: "/plan/1",
       },
       {
+        disabled: true,
         title: "Plan Item 2",
         href: "/plan/2",
+      },
+    ],
+  },
+  {
+    title: "Apps",
+    disabled: true,
+    items: [
+      {
+        title: "App Item 1",
+        href: "/app/1",
       },
     ],
   },
