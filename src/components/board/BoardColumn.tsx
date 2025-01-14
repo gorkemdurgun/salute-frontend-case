@@ -35,7 +35,7 @@ const BoardColumn: React.FC<Props> = ({ status, title, taskList }) => {
           .map((task) => (
             <Task key={task.id} {...task} />
           ))}
-        {!isAddingTask && (
+        {isAddingTask && (
           <div className="flex flex-col gap-2 p-2 border bg-white rounded-md">
             <input
               type="text"

@@ -5,6 +5,8 @@ import AvatarGroup from "../common/AvatarGroup";
 
 import dayjs from "dayjs";
 import DatePicker from "../input/DatePicker";
+import { PiPencilSimple as EditIcon } from "react-icons/pi";
+import Button from "../common/Button";
 
 type Props = Task;
 const Task: React.FC<Props> = ({ id, title, dueDate, assigneeIds }) => {
@@ -16,8 +18,13 @@ const Task: React.FC<Props> = ({ id, title, dueDate, assigneeIds }) => {
   };
 
   return (
-    <div className="cursor-grab flex flex-col gap-2 p-2 border bg-white rounded-md" draggable onDragStart={handleDragStart}>
-      <h3 className="text-sm text-neutral-dark">{title}</h3>
+    <div className="group cursor-grab flex flex-col gap-2 p-2 border bg-white rounded-md" draggable onDragStart={handleDragStart}>
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="text-sm text-neutral-dark">{title}</h3>
+        <Button className="!p-0 text-sm text-transparent group-hover:text-gray-500">
+          <EditIcon />
+        </Button>
+      </div>
       <div className="flex items-center justify-between">
         <span className={`inline-flex gap-1 text-xs font-medium ${isOverdue ? "text-danger" : "text-neutral-dark/80"}`}>
           Due: <DatePicker defaultValue={dueDate} onChangeDate={(date) => console.log(date)} />
