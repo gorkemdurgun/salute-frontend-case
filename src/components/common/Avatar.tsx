@@ -8,7 +8,7 @@ interface AvatarProps {
 }
 
 const Avatar: React.FC<AvatarProps> = React.memo(({ alt, src, className = "" }) => {
-  return <ImageBox alt={alt} src={src} className={`cursor-pointer w-8 h-8 rounded-full ${className}`} />;
+  return <ImageBox alt={alt} src={src} className={`cursor-pointer w-8 h-8 rounded-full overflow-hidden ${className}`} />;
 });
 
 Avatar.displayName = "Avatar";
