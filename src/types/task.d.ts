@@ -5,8 +5,8 @@ type Task = {
   title: string;
   description: string;
   assigneeIds: string[];
-  storyPoints: number | null;
-  startDate: string | null;
-  dueDate: string | null;
+  storyPoints?: number;
+  startDate?: string;
+  dueDate?: string;
   status: TaskStatus;
 };

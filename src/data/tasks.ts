@@ -8,8 +8,8 @@ export const tasks: Task[] = [
       "0d631020-b9a5-4ece-9c60-d9239d23b4f2", // Gerri Kellman
     ],
     storyPoints: 13,
-    startDate: "2025-01-10",
-    dueDate: "2025-01-15",
+    startDate: "2025-01-03",
+    dueDate: "2025-01-05",
     status: 1,
   },
   {
