@@ -1,7 +1,7 @@
 export const tasks: Task[] = [
   {
-    id: "gorev-1",
-    title: "GoJo Satın Alımını Tamamla",
+    id: "1",
+    title: "GoJo Satın Alımını Tamamla ve Anlaşmayı İmzala",
     description: "GoJo satın alımı için nihai anlaşma şartlarını hazırlayın. Tüm yasal onayların alındığından emin olun.",
     assigneeIds: [
       "3e10b298-788f-472b-87e8-e53468202e1d", // Logan Roy
@@ -10,10 +10,10 @@ export const tasks: Task[] = [
     storyPoints: 13,
     startDate: "2025-01-10",
     dueDate: "2025-01-15",
-    status: "In Progress",
+    status: 1,
   },
   {
-    id: "gorev-2",
+    id: "2",
     title: "Yönetim Kurulu Onayı Al",
     description: "Yönetim kurulunu satın alımı onaylamaya ikna edin. Ayrıntılı bir sunum hazırlayın.",
     assigneeIds: [
@@ -23,10 +23,10 @@ export const tasks: Task[] = [
     storyPoints: 8,
     startDate: "2025-01-12",
     dueDate: "2025-01-18",
-    status: "Open",
+    status: 0,
   },
   {
-    id: "gorev-3",
+    id: "3",
     title: "Hukuki Riskleri İncele",
     description: "Satın alımla ilgili yasal riskleri analiz edin ve hukuk ekibiyle koordinasyon sağlayın.",
     assigneeIds: [
@@ -35,10 +35,10 @@ export const tasks: Task[] = [
     storyPoints: 5,
     startDate: "2025-01-11",
     dueDate: "2025-01-16",
-    status: "Open",
+    status: 0,
   },
   {
-    id: "gorev-4",
+    id: "4",
     title: "Çalışanlarla Toplantı Düzenle",
     description: "Satın alımla ilgili çalışanların endişelerini gidermek için bir toplantı organize edin.",
     assigneeIds: [
@@ -48,10 +48,10 @@ export const tasks: Task[] = [
     storyPoints: 8,
     startDate: "2025-01-13",
     dueDate: "2025-01-20",
-    status: "Open",
+    status: 0,
   },
   {
-    id: "gorev-5",
+    id: "5",
     title: "Medya İlişkilerini Yönetin",
     description: "Satın alım hakkında olumlu bir imaj oluşturmak için basın bültenlerini ve röportajları yönetin.",
     assigneeIds: [
@@ -61,10 +61,10 @@ export const tasks: Task[] = [
     storyPoints: 5,
     startDate: "2025-01-12",
     dueDate: "2025-01-17",
-    status: "In Review",
+    status: 2,
   },
   {
-    id: "gorev-6",
+    id: "6",
     title: "Finansal Raporları Hazırla",
     description: "Satın alım sunumu için gerekli finansal raporları derleyin ve gözden geçirin.",
     assigneeIds: [
@@ -74,10 +74,10 @@ export const tasks: Task[] = [
     storyPoints: 8,
     startDate: "2025-01-10",
     dueDate: "2025-01-14",
-    status: "Done",
+    status: 3,
   },
   {
-    id: "gorev-7",
+    id: "7",
     title: "Hissedar Mücadelesi Risklerini Değerlendir",
     description: "Hissedarların potansiyel bir itiraz stratejisini değerlendirin ve buna karşı strateji geliştirin.",
     assigneeIds: [
@@ -87,6 +87,6 @@ export const tasks: Task[] = [
     storyPoints: 3,
     startDate: "2025-01-14",
     dueDate: "2025-01-20",
-    status: "Open",
+    status: 0,
   },
 ];
