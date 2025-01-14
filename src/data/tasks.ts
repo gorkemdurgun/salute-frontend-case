@@ -1,91 +1,111 @@
 export const tasks: Task[] = [
   {
-    id: "1",
-    title: "GoJo Satın Alımını Tamamla ve Anlaşmayı İmzala",
-    description: "GoJo satın alımı için nihai anlaşma şartlarını hazırlayın. Tüm yasal onayların alındığından emin olun.",
-    assigneeIds: [
-      "3e10b298-788f-472b-87e8-e53468202e1d", // Logan Roy
-      "0d631020-b9a5-4ece-9c60-d9239d23b4f2", // Gerri Kellman
-    ],
-    storyPoints: 13,
-    startDate: "2025-01-03",
-    dueDate: "2025-01-05",
-    status: 1,
-  },
-  {
-    id: "2",
-    title: "Yönetim Kurulu Onayı Al",
-    description: "Yönetim kurulunu satın alımı onaylamaya ikna edin. Ayrıntılı bir sunum hazırlayın.",
-    assigneeIds: [
-      "85bc575d-0c9b-4c30-9202-1e118767c583", // Kendall Roy
-      "a9b155c6-6f44-494f-84b5-2ef372bb3cdb", // Frank Vernon
-    ],
+    id: "task-1",
+    title: "Lannister'lara Karşı Savaş Stratejisi Oluştur",
+    description: "Yaklaşan savaş için kapsamlı bir strateji oluştur.",
+    assigneeIds: ["3e10b298-788f-472b-87e8-e53468202e1d", "f3b1b7b1-5b7b-4b7b-8b7b-7b7b7b7b7b7b"],
     storyPoints: 8,
-    startDate: "2025-01-12",
-    dueDate: "2025-01-18",
-    status: 0,
-  },
-  {
-    id: "3",
-    title: "Hukuki Riskleri İncele",
-    description: "Satın alımla ilgili yasal riskleri analiz edin ve hukuk ekibiyle koordinasyon sağlayın.",
-    assigneeIds: [
-      "0d631020-b9a5-4ece-9c60-d9239d23b4f2", // Gerri Kellman
-    ],
-    storyPoints: 5,
-    startDate: "2025-01-11",
-    dueDate: "2025-01-16",
-    status: 0,
-  },
-  {
-    id: "4",
-    title: "Çalışanlarla Toplantı Düzenle",
-    description: "Satın alımla ilgili çalışanların endişelerini gidermek için bir toplantı organize edin.",
-    assigneeIds: [
-      "69643af1-9bb2-4e71-9171-932463ab6163", // Shiv Roy
-      "96d4036d-ae6b-4e0b-90e7-6864d79bc302", // Tom Wambsgans
-    ],
-    storyPoints: 8,
-    startDate: "2025-01-13",
+    startDate: "2025-01-15",
     dueDate: "2025-01-20",
     status: 0,
   },
   {
-    id: "5",
-    title: "Medya İlişkilerini Yönetin",
-    description: "Satın alım hakkında olumlu bir imaj oluşturmak için basın bültenlerini ve röportajları yönetin.",
-    assigneeIds: [
-      "4011adc0-0fef-4d8b-8ced-6a48ba372b94", // Roman Roy
-      "69643af1-9bb2-4e71-9171-932463ab6163", // Shiv Roy
-    ],
+    id: "task-2",
+    title: "Ejderhaları Kontrol Et",
+    description: "Ejderhaların sağlığını ve hazır olup olmadığını kontrol et.",
+    assigneeIds: ["85bc575d-0c9b-4c30-9202-1e118767c583"],
     storyPoints: 5,
-    startDate: "2025-01-12",
-    dueDate: "2025-01-17",
+    startDate: "2025-01-16",
+    dueDate: "2025-01-18",
+    status: 1,
+  },
+  {
+    id: "task-3",
+    title: "Kral Topraklarında Güvenliği Sağla",
+    description: "Kral Toprakları'nın güvenliğini artırmak için tedbirler al.",
+    assigneeIds: ["69643af1-9bb2-4e71-9171-932463ab6163", "4011adc0-0fef-4d8b-8ced-6a48ba372b94"],
+    storyPoints: 13,
+    startDate: "2025-01-14",
+    dueDate: "2025-01-25",
     status: 2,
   },
   {
-    id: "6",
-    title: "Finansal Raporları Hazırla",
-    description: "Satın alım sunumu için gerekli finansal raporları derleyin ve gözden geçirin.",
-    assigneeIds: [
-      "a9b155c6-6f44-494f-84b5-2ef372bb3cdb", // Frank Vernon
-      "3e10b298-788f-472b-87e8-e53468202e1d", // Logan Roy
-    ],
-    storyPoints: 8,
+    id: "task-4",
+    title: "Kraliyet Muhasebesini Güncelle",
+    description: "Kraliyet gelir ve giderlerini detaylı olarak incele ve güncelle.",
+    assigneeIds: ["4011adc0-0fef-4d8b-8ced-6a48ba372b94"],
+    storyPoints: 3,
     startDate: "2025-01-10",
-    dueDate: "2025-01-14",
+    dueDate: "2025-01-13",
     status: 3,
   },
   {
-    id: "7",
-    title: "Hissedar Mücadelesi Risklerini Değerlendir",
-    description: "Hissedarların potansiyel bir itiraz stratejisini değerlendirin ve buna karşı strateji geliştirin.",
-    assigneeIds: [
-      "96d4036d-ae6b-4e0b-90e7-6864d79bc302", // Tom Wambsgans
-      "85bc575d-0c9b-4c30-9202-1e118767c583", // Kendall Roy
-    ],
+    id: "task-5",
+    title: "Winterfell Savunmasını Hazırla ve Kuzey Ordularına Elçi Gönder",
+    description: "Winterfell'in duvarlarının güçlendirilmesi ve askerlerin hazırlanması.",
+    assigneeIds: ["f3b1b7b1-5b7b-4b7b-8b7b-7b7b7b7b7b7b", "a9b155c6-6f44-494f-84b5-2ef372bb3cdb"],
+    storyPoints: 8,
+    startDate: "2025-01-15",
+    dueDate: "2025-01-22",
+    status: 1,
+  },
+  {
+    id: "task-6",
+    title: "Ejderhacamı Envanterini Kontrol Et",
+    description: "Savaş için yeterli ejderhacamı stoğunun olduğundan emin ol.",
+    assigneeIds: ["0d631020-b9a5-4ece-9c60-d9239d23b4f2", "85bc575d-0c9b-4c30-9202-1e118767c583"],
+    storyPoints: 5,
+    startDate: "2025-01-17",
+    dueDate: "2025-01-19",
+    status: 0,
+  },
+  {
+    id: "task-7",
+    title: "Kuzgun Mesajlarını Gönder",
+    description: "Kuzeydeki müttefiklere yardım çağrısı içeren kuzgun mesajlarını gönder.",
+    assigneeIds: ["3e10b298-788f-472b-87e8-e53468202e1d"],
     storyPoints: 3,
     startDate: "2025-01-14",
+    dueDate: "2025-01-15",
+    status: 0,
+  },
+  {
+    id: "task-8",
+    title: "Demir Taht İçin İddiaları Araştır",
+    description: "Demir Taht için olası rakiplerin iddialarını analiz et ve rapor hazırla.",
+    assigneeIds: ["85bc575d-0c9b-4c30-9202-1e118767c583", "69643af1-9bb2-4e71-9171-932463ab6163"],
+    storyPoints: 8,
+    startDate: "2025-01-12",
+    dueDate: "2025-01-19",
+    status: 1,
+  },
+  {
+    id: "task-9",
+    title: "Arya'ya Hedef Listesi Sağla",
+    description: "Arya'ya hedef olarak belirlediği kişilerin konum bilgilerini hazırla.",
+    assigneeIds: ["a9b155c6-6f44-494f-84b5-2ef372bb3cdb"],
+    storyPoints: 5,
+    startDate: "2025-01-13",
+    dueDate: "2025-01-16",
+    status: 2,
+  },
+  {
+    id: "task-10",
+    title: "Jaime ile İttifakı Değerlendir",
+    description: "Jaime Lannister ile yapılabilecek bir ittifakın olasılıklarını tartış.",
+    assigneeIds: ["0d631020-b9a5-4ece-9c60-d9239d23b4f2", "85bc575d-0c9b-4c30-9202-1e118767c583"],
+    storyPoints: 8,
+    startDate: "2025-01-10",
+    dueDate: "2025-01-18",
+    status: 3,
+  },
+  {
+    id: "task-11",
+    title: "Sur'un Güvenlik Durumunu Kontrol Et",
+    description: "Sur'daki mevcut güvenlik ve savunma durumunu analiz et.",
+    assigneeIds: ["3e10b298-788f-472b-87e8-e53468202e1d"],
+    storyPoints: 5,
+    startDate: "2025-01-15",
     dueDate: "2025-01-20",
     status: 0,
   },

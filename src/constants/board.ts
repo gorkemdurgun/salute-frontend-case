@@ -9,7 +9,7 @@ export const boards: {
   },
   {
     status: 2,
-    title: "Review",
+    title: "In Review",
   },
   {
     status: 3,

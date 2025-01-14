@@ -25,9 +25,11 @@ const BoardColumn: React.FC<Props> = ({ status, title, taskList }) => {
         <div className={`w-3 h-3 rounded-full ml-auto mr-2 bg-blue`}></div>
       </div>
       <div className="flex flex-col gap-1 bg-neutral-light">
-        {taskList?.map((task) => (
-          <Task key={task.id} {...task} />
-        ))}
+        {taskList
+          ?.sort((a, b) => a.id.localeCompare(b.id))
+          .map((task) => (
+            <Task key={task.id} {...task} />
+          ))}
       </div>
     </div>
   );
