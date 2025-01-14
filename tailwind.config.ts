@@ -31,6 +31,9 @@ export default {
           dark: "#42526E", //
         },
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
     },
   },
   plugins: [],
