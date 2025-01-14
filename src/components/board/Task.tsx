@@ -8,7 +8,7 @@ import DatePicker from "../input/DatePicker";
 
 type Props = Task;
 const Task: React.FC<Props> = ({ id, title, dueDate, assigneeIds }) => {
-  const assigneeList = users.filter((user) => assigneeIds.includes(user.id));
+  const assigneeList = users.filter((user) => assigneeIds?.includes(user.id));
   const isOverdue = dayjs().isAfter(dayjs(dueDate));
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
