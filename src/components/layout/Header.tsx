@@ -3,8 +3,13 @@ import ImageBox from "../common/ImageBox";
 import HeaderDropdown from "./HeaderDropdown";
 
 import { CgMenuGridR as DashboardIcon } from "react-icons/cg";
+import { FaRocket as RocketIcon, FaQuestionCircle as QuestionIcon } from "react-icons/fa";
+import { BsGearWide as SettingsIcon } from "react-icons/bs";
+
 import { headerMenuDropdownItems } from "@/constants/headerMenu";
 import Button from "../common/Button";
+import SearchBox from "../common/SearchBox";
+import Avatar from "../common/Avatar";
 
 const Header = () => {
   return (
@@ -25,7 +30,13 @@ const Header = () => {
           <Button className="!ml-4 bg-primary text-white text-sm">Create</Button>
         </div>
       </div>
-      <div>a</div>
+      <div className="flex items-center space-x-4">
+        <SearchBox />
+        <RocketIcon className="w-5 h-5 text-neutral-dark" />
+        <QuestionIcon className="w-5 h-5 text-neutral-dark" />
+        <SettingsIcon className="w-5 h-5 text-neutral-dark" />
+        <Avatar alt="User" src={svg.UserAvatar} />
+      </div>
     </header>
   );
 };
