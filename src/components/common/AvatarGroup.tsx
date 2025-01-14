@@ -1,17 +1,17 @@
 import Avatar from "./Avatar";
 
 type Props = {
-  avatars: string[];
+  users: User[];
 };
 
-const AvatarGroup: React.FC<Props> = ({ avatars }) => {
+const UserGroup: React.FC<Props> = ({ users }) => {
   return (
     <div className="flex">
-      {avatars.map((avatar, index) => (
-        <Avatar alt="avatar" key={index} src={avatar} className={`w-[24px] h-[24px] ${index > 0 ? "-ml-2" : ""}`} />
+      {users.map((user, index) => (
+        <Avatar alt="avatar" key={index} src={user?.avatar} className={`w-[24px] h-[24px] ${index > 0 ? "-ml-2" : ""}`} />
       ))}
     </div>
   );
 };
 
-export default AvatarGroup;
+export default UserGroup;
