@@ -8,7 +8,7 @@ import { BsGearWide as SettingsIcon } from "react-icons/bs";
 
 import { headerMenuDropdownItems } from "@/constants/menu";
 import Button from "../common/Button";
-import SearchBox from "../common/SearchBox";
+import SearchBox from "../input/SearchBox";
 import Avatar from "../common/Avatar";
 
 const Header = () => {
