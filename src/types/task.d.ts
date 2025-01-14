@@ -1,4 +1,4 @@
-type TaskStatus = "Open" | "In Progress" | "In Review" | "Done";
+type TaskStatus = 0 | 1 | 2 | 3;
 
 type Task = {
   id: string;

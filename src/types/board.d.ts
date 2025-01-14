@@ -1,13 +1,14 @@
 type BoardColumn = {
-  id: TaskStatus;
+  id: string;
   title: string;
   taskIds: string[];
 };
 
 type Board = {
-  tasks: Record<string, Task>;
-  columns: Record<TaskStatus, BoardColumn>;
-  columnOrder: TaskStatus[];
+  id: string;
+  title: string;
+  columnOrder: string[];
+  columns: Record<string, BoardColumn>;
 };
 
 type DragDropEvent = {
