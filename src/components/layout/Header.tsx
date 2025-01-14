@@ -3,6 +3,7 @@ import ImageBox from "../common/ImageBox";
 import HeaderDropdown from "./HeaderDropdown";
 
 import { TbGridDots as DashboardIcon } from "react-icons/tb";
+import { headerMenuDropdownItems } from "@/constants/headerMenu";
 
 const Header = () => {
   return (
@@ -16,7 +17,11 @@ const Header = () => {
           <h1 className="text-2xl text-neutral-dark">Jira</h1>
         </div>
         {/* Dropdowns */}
-        <div className="flex items-center space-x-4"></div>
+        <div className="flex items-center space-x-1">
+          {headerMenuDropdownItems.map((item, index) => (
+            <HeaderDropdown key={index} title={item.title} items={item.items} />
+          ))}
+        </div>
       </div>
       <div>a</div>
     </header>
