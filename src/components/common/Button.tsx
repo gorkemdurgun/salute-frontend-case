@@ -8,7 +8,7 @@ const Button: React.FC<Props> = ({ children, className, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all ${className}`}
+      className={`flex items-center justify-center gap-2 px-4 py-2 rounded-md transition-all ${className}`}
     >
       {children}
     </button>
