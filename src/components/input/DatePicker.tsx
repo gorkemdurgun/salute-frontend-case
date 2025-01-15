@@ -1,13 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import dayjs from "dayjs";
+import { useEffect, useRef, useState } from "react";
 
 type DatePickerProps = {
   defaultValue?: string;
+  minDate?: string;
   onChangeDate: (date: string) => void;
 };
 
-const DatePicker: React.FC<DatePickerProps> = ({ defaultValue, onChangeDate }) => {
+const DatePicker: React.FC<DatePickerProps> = ({ defaultValue, minDate, onChangeDate }) => {
   const datePickerRef = useRef<HTMLInputElement>(null);
 
   const [date, setDate] = useState(defaultValue);
@@ -17,14 +19,21 @@ const DatePicker: React.FC<DatePickerProps> = ({ defaultValue, onChangeDate }) =
     onChangeDate(date);
   };
 
+  useEffect(() => {
+    if (date && minDate && dayjs(date).isBefore(minDate)) {
+      setDate(minDate);
+    }
+  }, [date, minDate]);
+
   return (
     <div className="relative">
       <input
         ref={datePickerRef}
         type="date"
         value={date}
+        min={minDate}
         onChange={(e) => handleChange(e.target.value)}
-        className="pl-4 pr-2 py-1 text-xs text-neutral-dark border-2 border-neutral-light rounded-md focus:outline-none focus:border-primary"
+        className="cursor-vertical-text w-full p-2 border rounded-md text-sm text-neutral-dark"
       />
     </div>
   );
