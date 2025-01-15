@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { users } from "@/data/users";
+import { createSlice } from '@reduxjs/toolkit';
+import { users } from '@/data/users';
 
 interface ProjectState {
   users: User[];
@@ -10,7 +10,7 @@ const initialState: ProjectState = {
 };
 
 export const projectSlice = createSlice({
-  name: "project",
+  name: 'project',
   initialState,
   reducers: {},
 });

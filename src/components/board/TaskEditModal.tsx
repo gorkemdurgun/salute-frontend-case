@@ -1,14 +1,22 @@
-"use client";
+'use client';
 
-import { PiX as CloseIcon, PiTrash as TrashIcon, PiCheck as SaveIcon } from "react-icons/pi";
-import Button from "../common/Button";
-import { useState } from "react";
-import UserGroup from "../common/UserGroup";
-import { useAppDispatch, useAppSelector } from "@/hooks";
-import UserPicker from "../input/UserPicker";
-import { updateTaskAssignees, updateTaskDetails, deleteTask } from "@/redux/reducers/taskReducer";
-import DatePicker from "../input/DatePicker";
-import dayjs from "dayjs";
+import {
+  PiX as CloseIcon,
+  PiTrash as TrashIcon,
+  PiCheck as SaveIcon,
+} from 'react-icons/pi';
+import Button from '../common/Button';
+import { useState } from 'react';
+import UserGroup from '../common/UserGroup';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import UserPicker from '../input/UserPicker';
+import {
+  updateTaskAssignees,
+  updateTaskDetails,
+  deleteTask,
+} from '@/redux/reducers/taskReducer';
+import DatePicker from '../input/DatePicker';
+import dayjs from 'dayjs';
 
 type Props = {
   visible: boolean;
@@ -19,7 +27,9 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
   const dispatch = useAppDispatch();
 
   const { users } = useAppSelector((state) => state.project);
-  const assigneeList = users.filter((user) => task?.assigneeIds?.includes(user.id));
+  const assigneeList = users.filter((user) =>
+    task?.assigneeIds?.includes(user.id)
+  );
 
   const [taskDetails, setTaskDetails] = useState<Task>(task);
 
@@ -40,95 +50,105 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
   };
 
   return (
-    <div className="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="w-[500px] bg-white p-4 rounded-md flex flex-col gap-4">
+    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="flex w-[500px] flex-col gap-4 rounded-md bg-white p-4">
         <div className="flex items-center justify-between gap-4">
-          <h3 className="text-md text-neutral-dark font-medium">Edit Task</h3>
+          <h3 className="text-md font-medium text-neutral-dark">Edit Task</h3>
           <Button onClick={() => setVisible(false)}>
             <CloseIcon className="text-lg text-neutral-dark" />
           </Button>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <div className="flex flex-col gap-1 w-full">
+          <div className="flex w-full flex-col gap-1">
             <label htmlFor="title" className="text-xs text-neutral-dark">
-              Görev Adı
+              Task Title
             </label>
             <input
               type="text"
               id="title"
               value={taskDetails.title}
-              onChange={(e) => handleChangeInput("title", e.target.value)}
-              className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              onChange={(e) => handleChangeInput('title', e.target.value)}
+              className="w-full rounded-md border p-2 text-sm text-neutral-dark"
             />
           </div>
-          <div className="flex flex-col gap-1 w-full">
+          <div className="flex w-full flex-col gap-1">
             <label htmlFor="Description" className="text-xs text-neutral-dark">
-              Açıklama
+              Description
             </label>
             <textarea
               id="Description"
               value={taskDetails.description}
-              onChange={(e) => handleChangeInput("description", e.target.value)}
-              className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              onChange={(e) => handleChangeInput('description', e.target.value)}
+              className="w-full rounded-md border p-2 text-sm text-neutral-dark"
             />
           </div>
-          <div className="flex flex-col gap-1 w-full">
+          <div className="flex w-full flex-col gap-1">
             <label htmlFor="userList" className="text-xs text-neutral-dark">
-              Atananlar
+              Assignees
             </label>
             <div className="relative flex items-center gap-2">
               <UserGroup tooltip avatarSize="lg" users={assigneeList} />
               <UserPicker
                 currentUsers={assigneeList}
                 onChangeList={(users) => {
-                  dispatch(updateTaskAssignees({ taskId: task.id, assigneeIds: users.map((u) => u.id) }));
+                  dispatch(
+                    updateTaskAssignees({
+                      taskId: task.id,
+                      assigneeIds: users.map((u) => u.id),
+                    })
+                  );
                 }}
               />
             </div>
           </div>
-          <div className="grid grid-cols-[1fr_1fr_80px] gap-4 w-full">
-            <div className="flex flex-col gap-1 w-full">
+          <div className="grid w-full grid-cols-[1fr_1fr_80px] gap-4">
+            <div className="flex w-full flex-col gap-1">
               <label htmlFor="startDate" className="text-xs text-neutral-dark">
-                Başlangıç Tarihi
+                Start Date
               </label>
               <DatePicker
                 defaultValue={taskDetails.startDate}
-                minDate={dayjs().format("YYYY-MM-DD")}
-                onChangeDate={(date) => handleChangeInput("startDate", date)}
+                minDate={dayjs().format('YYYY-MM-DD')}
+                onChangeDate={(date) => handleChangeInput('startDate', date)}
               />
             </div>
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex w-full flex-col gap-1">
               <label htmlFor="dueDate" className="text-xs text-neutral-dark">
-                Bitiş Tarihi
+                Due Date
               </label>
               <DatePicker
                 defaultValue={taskDetails.dueDate}
-                minDate={dayjs().format("YYYY-MM-DD")}
-                onChangeDate={(date) => handleChangeInput("dueDate", date)}
+                minDate={dayjs().format('YYYY-MM-DD')}
+                onChangeDate={(date) => handleChangeInput('dueDate', date)}
               />
             </div>
-            <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="storyPoints" className="text-xs text-neutral-dark">
-                Story Point
+            <div className="flex w-full flex-col gap-1">
+              <label
+                htmlFor="storyPoints"
+                className="text-xs text-neutral-dark"
+              >
+                Story Points
               </label>
               <input
                 type="number"
                 id="storyPoints"
                 value={taskDetails.storyPoints}
-                onChange={(e) => handleChangeInput("storyPoints", e.target.value)}
-                className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+                onChange={(e) =>
+                  handleChangeInput('storyPoints', e.target.value)
+                }
+                className="w-full rounded-md border p-2 text-sm text-neutral-dark"
               />
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-end gap-2 mt-4">
+        <div className="mt-4 flex items-center justify-end gap-2">
           <Button className="bg-danger/10" onClick={handleDeleteTask}>
             <TrashIcon className="text-md text-danger" />
-            <span className="text-xs text-danger">Görevi Sil</span>
+            <span className="text-xs text-danger">Delete Task</span>
           </Button>
           <Button className="bg-success/10" onClick={handleSaveChanges}>
             <SaveIcon className="text-md text-success" />
-            <span className="text-xs text-success">Değişiklikleri Kaydet</span>
+            <span className="text-xs text-success">Save Changes</span>
           </Button>
         </div>
       </div>

@@ -1,14 +1,14 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import projectReducer from "@/redux/reducers/projectReducer";
-import taskReducer from "@/redux/reducers/taskReducer";
+import projectReducer from '@/redux/reducers/projectReducer';
+import taskReducer from '@/redux/reducers/taskReducer';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  whitelist: ["tasks", "projects"],
+  whitelist: ['tasks', 'projects'],
 };
 
 const rootReducer = combineReducers({

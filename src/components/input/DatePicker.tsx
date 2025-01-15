@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
 type DatePickerProps = {
   defaultValue?: string;
@@ -8,7 +8,11 @@ type DatePickerProps = {
   onChangeDate: (date: string) => void;
 };
 
-const DatePicker: React.FC<DatePickerProps> = ({ defaultValue, minDate, onChangeDate }) => {
+const DatePicker: React.FC<DatePickerProps> = ({
+  defaultValue,
+  minDate,
+  onChangeDate,
+}) => {
   const datePickerRef = useRef<HTMLInputElement>(null);
 
   const [date, setDate] = useState(defaultValue);
@@ -26,7 +30,7 @@ const DatePicker: React.FC<DatePickerProps> = ({ defaultValue, minDate, onChange
     <div className="relative" onClick={openDatePicker}>
       <input
         ref={datePickerRef}
-        className="cursor-pointer w-full p-2 border rounded-md text-sm text-neutral-dark"
+        className="w-full cursor-pointer rounded-md border p-2 text-sm text-neutral-dark"
         type="date"
         value={date}
         min={minDate}

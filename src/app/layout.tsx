@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import "./globals.css";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+import './globals.css';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import store, { persistor } from "@/redux/store";
+import store, { persistor } from '@/redux/store';
 
 export default function RootLayout({
   children,

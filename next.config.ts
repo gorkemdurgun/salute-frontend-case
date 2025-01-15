@@ -1,10 +1,10 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "static.wikia.nocookie.net",
+        hostname: 'static.wikia.nocookie.net',
       },
     ],
   },

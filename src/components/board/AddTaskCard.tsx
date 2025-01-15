@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useAppDispatch } from "@/hooks";
-import { addNewTask } from "@/redux/reducers/taskReducer";
-import Button from "../common/Button";
+import { useState } from 'react';
+import { useAppDispatch } from '@/hooks';
+import { addNewTask } from '@/redux/reducers/taskReducer';
+import Button from '../common/Button';
 
 type Props = {
   status: TaskStatus;
@@ -10,7 +10,7 @@ type Props = {
 
 const AddTaskCard: React.FC<Props> = ({ status, onCancel }) => {
   const dispatch = useAppDispatch();
-  const [newTaskTitle, setNewTaskTitle] = useState("");
+  const [newTaskTitle, setNewTaskTitle] = useState('');
 
   const handleAddTask = () => {
     dispatch(
@@ -19,28 +19,28 @@ const AddTaskCard: React.FC<Props> = ({ status, onCancel }) => {
         status,
       })
     );
-    setNewTaskTitle("");
+    setNewTaskTitle('');
     onCancel();
   };
 
   return (
-    <div className="flex flex-col gap-2 p-2 border bg-white rounded-md">
+    <div className="flex flex-col gap-2 rounded-md border bg-white p-2">
       <input
         type="text"
-        className="text-sm text-neutral-dark w-full p-1 rounded-md outline-none"
+        className="w-full rounded-md p-1 text-sm text-neutral-dark outline-none"
         value={newTaskTitle}
         onChange={(e) => setNewTaskTitle(e.target.value)}
         placeholder="Task title"
       />
-      <div className="flex justify-end gap-2 mt-2">
+      <div className="mt-2 flex justify-end gap-2">
         <Button
-          className="text-xs text-gray-500 bg-transparent hover:text-neutral-dark hover:bg-neutral/50"
+          className="bg-transparent text-xs text-gray-500 hover:bg-neutral/50 hover:text-neutral-dark"
           onClick={onCancel}
         >
           Cancel
         </Button>
         <Button
-          className="text-xs bg-primary text-white"
+          className="bg-primary text-xs text-white"
           onClick={handleAddTask}
         >
           Add Task

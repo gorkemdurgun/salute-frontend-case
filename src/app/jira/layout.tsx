@@ -1,5 +1,5 @@
-import Header from "@/components/layout/Header";
-import Sidebar from "@/components/layout/Sidebar";
+import Header from '@/components/layout/Header';
+import Sidebar from '@/components/layout/Sidebar';
 
 export default function BoardLayout({
   children,
@@ -7,11 +7,11 @@ export default function BoardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex h-screen flex-col">
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-4 bg-white">{children}</main>
+        <main className="flex-1 bg-white p-4">{children}</main>
       </div>
     </div>
   );

@@ -1,31 +1,39 @@
-"use client";
+'use client';
 
-import AvatarGroup from "../common/UserGroup";
+import AvatarGroup from '../common/UserGroup';
 
-import dayjs from "dayjs";
-import { PiPencilSimple as EditIcon } from "react-icons/pi";
-import Button from "../common/Button";
-import TaskEditModal from "./TaskEditModal";
-import { useState } from "react";
-import { useAppSelector } from "@/hooks";
+import dayjs from 'dayjs';
+import { PiPencilSimple as EditIcon } from 'react-icons/pi';
+import Button from '../common/Button';
+import TaskEditModal from './TaskEditModal';
+import { useState } from 'react';
+import { useAppSelector } from '@/hooks';
 
 type Props = Task;
 const TaskCard: React.FC<Props> = ({ ...props }) => {
   const { users } = useAppSelector((state) => state.project);
-  const assigneeList = users.filter((user) => props?.assigneeIds?.includes(user.id));
+  const assigneeList = users.filter((user) =>
+    props?.assigneeIds?.includes(user.id)
+  );
   const isOverdue = dayjs().isAfter(dayjs(props.dueDate));
 
   const [isEditing, setIsEditing] = useState(false);
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.dataTransfer.setData("taskId", props.id);
+    e.dataTransfer.setData('taskId', props.id);
   };
 
   return (
     <>
-      {isEditing && <TaskEditModal visible={isEditing} setVisible={setIsEditing} task={props} />}
+      {isEditing && (
+        <TaskEditModal
+          visible={isEditing}
+          setVisible={setIsEditing}
+          task={props}
+        />
+      )}
       <div
-        className="group cursor-grab flex flex-col gap-2 p-2 border bg-white rounded-md"
+        className="group flex cursor-grab flex-col gap-2 rounded-md border bg-white p-2"
         draggable
         onDragStart={handleDragStart}
         onClick={() => setIsEditing(true)}
@@ -37,8 +45,11 @@ const TaskCard: React.FC<Props> = ({ ...props }) => {
           </Button>
         </div>
         <div className="flex items-center justify-between">
-          <span className={`inline-flex gap-1 text-xs font-medium ${isOverdue ? "text-danger" : "text-neutral-dark/80"}`}>
-            Due date : {props?.dueDate ? dayjs(props?.dueDate).format("MMM DD") : "-"}
+          <span
+            className={`inline-flex gap-1 text-xs font-medium ${isOverdue ? 'text-danger' : 'text-neutral-dark/80'}`}
+          >
+            Due date :{' '}
+            {props?.dueDate ? dayjs(props?.dueDate).format('MMM DD') : '-'}
           </span>
           <AvatarGroup users={assigneeList} />
         </div>
