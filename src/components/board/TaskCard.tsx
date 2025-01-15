@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useAppSelector } from "@/hooks";
 
 type Props = Task;
-const Task: React.FC<Props> = ({ ...props }) => {
+const TaskCard: React.FC<Props> = ({ ...props }) => {
   const { users } = useAppSelector((state) => state.project);
   const assigneeList = users.filter((user) => props?.assigneeIds?.includes(user.id));
   const isOverdue = dayjs().isAfter(dayjs(props.dueDate));
@@ -38,7 +38,7 @@ const Task: React.FC<Props> = ({ ...props }) => {
         </div>
         <div className="flex items-center justify-between">
           <span className={`inline-flex gap-1 text-xs font-medium ${isOverdue ? "text-danger" : "text-neutral-dark/80"}`}>
-            Due: {dayjs(props.dueDate).format("MMM DD")}
+            Due date : {props?.dueDate ? dayjs(props?.dueDate).format("MMM DD") : "-"}
           </span>
           <AvatarGroup users={assigneeList} />
         </div>
@@ -47,4 +47,4 @@ const Task: React.FC<Props> = ({ ...props }) => {
   );
 };
 
-export default Task;
+export default TaskCard;
