@@ -40,7 +40,7 @@ const UserPicker: React.FC<Props> = ({ currentUsers, onChangeList }) => {
 
   return (
     <div className="relative flex items-center">
-      <Button className="!-ml-4 !p-3 !rounded-full bg-gray-200 hover:bg-gray-300" onClick={() => setVisible(!visible)}>
+      <Button className="!-ml-4 !p-4 !rounded-full bg-gray-200 hover:bg-gray-300" onClick={() => setVisible(!visible)}>
         <AddIcon className="text-md text-gray-800" />
       </Button>
       {visible && (
