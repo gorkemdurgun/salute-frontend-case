@@ -27,7 +27,7 @@ const Avatar: React.FC<AvatarProps> = React.memo(
         <ImageBox
           alt={alt}
           src={src}
-          className={`h-8 w-8 cursor-pointer overflow-hidden rounded-full ${className}`}
+          className={`h-8 w-8 cursor-pointer overflow-hidden rounded-full shadow-md bg-neutral ${className}`}
         />
         {tooltip && (
           <div
