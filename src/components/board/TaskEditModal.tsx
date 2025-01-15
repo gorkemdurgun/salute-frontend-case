@@ -77,7 +77,7 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
               Atananlar
             </label>
             <div className="relative flex items-center gap-2">
-              <UserGroup avatarSize="md" users={assigneeList} />
+              <UserGroup tooltip avatarSize="lg" users={assigneeList} />
               <UserPicker
                 currentUsers={assigneeList}
                 onChangeList={(users) => {
