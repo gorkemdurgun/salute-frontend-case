@@ -1,5 +1,6 @@
-import { addNewTask, updateTaskStatus } from "@/redux/reducers/taskReducer";
-import Task from "./Task";
+import { updateTaskStatus } from "@/redux/reducers/taskReducer";
+import TaskCard from "./TaskCard";
+import AddTaskCard from "./AddTaskCard";
 import { useAppDispatch } from "@/hooks";
 import Button from "../common/Button";
 import { memo, useState } from "react";
@@ -8,9 +9,7 @@ type Props = BoardColumn;
 
 const BoardColumn: React.FC<Props> = ({ status, title, taskList }) => {
   const dispatch = useAppDispatch();
-
   const [isAddingTask, setIsAddingTask] = useState(false);
-  const [newTaskTitle, setNewTaskTitle] = useState("");
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -30,45 +29,10 @@ const BoardColumn: React.FC<Props> = ({ status, title, taskList }) => {
         <div className={`w-3 h-3 rounded-full ml-auto mr-2 bg-blue`}></div>
       </div>
       <div className="flex flex-col gap-1 bg-neutral-light mb-2">
-        {taskList
-          ?.sort((a, b) => a.id.localeCompare(b.id))
-          .map((task) => (
-            <Task key={task.id} {...task} />
-          ))}
-        {isAddingTask && (
-          <div className="flex flex-col gap-2 p-2 border bg-white rounded-md">
-            <input
-              type="text"
-              className="text-sm text-neutral-dark w-full p-1 border rounded-md"
-              value={newTaskTitle}
-              onChange={(e) => setNewTaskTitle(e.target.value)}
-              placeholder="Task title"
-            />
-            <div className="flex gap-2">
-              <Button
-                className="text-xs text-gray-500 bg-transparent hover:text-neutral-dark hover:bg-neutral/50"
-                onClick={() => setIsAddingTask(false)}
-              >
-                Cancel
-              </Button>
-              <Button
-                className="text-xs bg-primary text-white"
-                onClick={() => {
-                  dispatch(
-                    addNewTask({
-                      title: newTaskTitle,
-                      status,
-                    })
-                  );
-                  setIsAddingTask(false);
-                  setNewTaskTitle("");
-                }}
-              >
-                Add Task
-              </Button>
-            </div>
-          </div>
-        )}
+        {taskList.map((task) => (
+          <TaskCard key={task.id} {...task} />
+        ))}
+        {isAddingTask && <AddTaskCard status={status} onCancel={() => setIsAddingTask(false)} />}
       </div>
       <div className="mt-auto mb-0 flex justify-center items-center w-full h-8 bg-neutral-light">
         <Button
