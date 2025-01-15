@@ -17,7 +17,7 @@ export const taskSlice = createSlice({
     addNewTask: (state, action: PayloadAction<Omit<Task, "id">>) => {
       state.list.push({
         id: Math.random().toString(36).substr(2, 9),
-        dueDate: action.payload.dueDate || dayjs().add(1, "day").format("YYYY-MM-DD"),
+        startDate: action.payload.startDate || dayjs().format("YYYY-MM-DD"),
         ...action.payload,
       });
     },
@@ -35,9 +35,20 @@ export const taskSlice = createSlice({
         throw new Error("Task not found");
       }
     },
+    updateTaskDetails: (state, action: PayloadAction<{ taskId: string; details: Partial<Task> }>) => {
+      const task = state.list.find((t) => t.id === action.payload.taskId);
+      if (task) {
+        Object.assign(task, action.payload.details);
+      } else {
+        throw new Error("Task not found");
+      }
+    },
+    deleteTask: (state, action: PayloadAction<string>) => {
+      state.list = state.list.filter((t) => t.id !== action.payload);
+    },
   },
 });
 
-export const { addNewTask, updateTaskStatus, updateTaskAssignees } = taskSlice.actions;
+export const { addNewTask, updateTaskStatus, updateTaskAssignees, updateTaskDetails, deleteTask } = taskSlice.actions;
 
 export default taskSlice.reducer;
