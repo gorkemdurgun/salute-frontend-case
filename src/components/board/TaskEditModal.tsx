@@ -65,7 +65,7 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
               Atananlar
             </label>
             <div className="relative flex items-center gap-2">
-              <UserGroup users={assigneeList} />
+              <UserGroup avatarSize="md" users={assigneeList} />
               <UserPicker
                 currentUsers={assigneeList}
                 onChangeList={(users) => {
@@ -74,16 +74,54 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
               />
             </div>
           </div>
+          <div className="grid grid-cols-[1fr_1fr_80px] gap-4 w-full">
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="startDate" className="text-xs text-neutral-dark">
+                Başlangıç Tarihi
+              </label>
+              <input
+                type="date"
+                id="startDate"
+                value={taskDetails.startDate}
+                onChange={(e) => handleChangeInput("startDate", e.target.value)}
+                className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="dueDate" className="text-xs text-neutral-dark">
+                Bitiş Tarihi
+              </label>
+              <input
+                type="date"
+                id="dueDate"
+                value={taskDetails.dueDate}
+                onChange={(e) => handleChangeInput("dueDate", e.target.value)}
+                className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="storyPoints" className="text-xs text-neutral-dark">
+                Story Point
+              </label>
+              <input
+                type="number"
+                id="storyPoints"
+                value={taskDetails.storyPoints}
+                onChange={(e) => handleChangeInput("storyPoint", e.target.value)}
+                className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              />
+            </div>
+          </div>
         </div>
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-2 mt-4">
           <Button className="bg-danger/10">
-            <TrashIcon className="text-lg text-danger" />
-            <span className="text-sm text-danger">Sil</span>
+            <TrashIcon className="text-md text-danger" />
+            <span className="text-xs text-danger">Görevi Sil</span>
           </Button>
-          {/* <Button className="bg-primary">
-            <SaveIcon className="text-lg text-white" />
-            <span className="text-sm text-white">Kaydet</span>
-          </Button> */}
+          <Button className="bg-success/10">
+            <SaveIcon className="text-md text-success" />
+            <span className="text-xs text-success">Değişiklikleri Kaydet</span>
+          </Button>
         </div>
       </div>
     </div>

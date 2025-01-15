@@ -39,10 +39,9 @@ const UserPicker: React.FC<Props> = ({ currentUsers, onChangeList }) => {
   };
 
   return (
-    <div className="relative flex items-center gap-2">
-      <Button className="!py-1 !px-2 bg-primary/10" onClick={() => setVisible(!visible)}>
-        <AddIcon className="text-md text-primary" />
-        <span className="text-sm text-primary">Atama Ekle</span>
+    <div className="relative flex items-center">
+      <Button className="!-ml-4 !p-3 !rounded-full bg-gray-200 hover:bg-gray-300" onClick={() => setVisible(!visible)}>
+        <AddIcon className="text-md text-gray-800" />
       </Button>
       {visible && (
         <div className="absolute top-10 left-0 w-[360px] bg-white border border-neutral-light rounded-md p-2 shadow-lg">

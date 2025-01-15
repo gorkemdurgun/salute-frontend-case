@@ -3,7 +3,6 @@
 import AvatarGroup from "../common/UserGroup";
 
 import dayjs from "dayjs";
-import DatePicker from "../input/DatePicker";
 import { PiPencilSimple as EditIcon } from "react-icons/pi";
 import Button from "../common/Button";
 import TaskEditModal from "./TaskEditModal";
@@ -39,7 +38,7 @@ const Task: React.FC<Props> = ({ ...props }) => {
         </div>
         <div className="flex items-center justify-between">
           <span className={`inline-flex gap-1 text-xs font-medium ${isOverdue ? "text-danger" : "text-neutral-dark/80"}`}>
-            Due: <DatePicker defaultValue={props?.dueDate} onChangeDate={(date) => console.log(date)} />
+            Due: {dayjs(props.dueDate).format("MMM DD")}
           </span>
           <AvatarGroup users={assigneeList} />
         </div>
