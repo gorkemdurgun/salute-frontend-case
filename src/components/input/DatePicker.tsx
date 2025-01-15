@@ -1,7 +1,6 @@
 "use client";
 
-import dayjs from "dayjs";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 type DatePickerProps = {
   defaultValue?: string;
@@ -19,21 +18,20 @@ const DatePicker: React.FC<DatePickerProps> = ({ defaultValue, minDate, onChange
     onChangeDate(date);
   };
 
-  useEffect(() => {
-    if (date && minDate && dayjs(date).isBefore(minDate)) {
-      setDate(minDate);
-    }
-  }, [date, minDate]);
+  const openDatePicker = () => {
+    datePickerRef.current?.focus();
+  };
 
   return (
-    <div className="relative">
+    <div className="relative" onClick={openDatePicker}>
       <input
         ref={datePickerRef}
+        className="cursor-pointer w-full p-2 border rounded-md text-sm text-neutral-dark"
         type="date"
         value={date}
         min={minDate}
         onChange={(e) => handleChange(e.target.value)}
-        className="cursor-vertical-text w-full p-2 border rounded-md text-sm text-neutral-dark"
+        onKeyDown={(e) => e.preventDefault()}
       />
     </div>
   );

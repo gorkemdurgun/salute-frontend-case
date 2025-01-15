@@ -6,7 +6,9 @@ import { useState } from "react";
 import UserGroup from "../common/UserGroup";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import UserPicker from "../input/UserPicker";
-import { updateTaskAssignees } from "@/redux/reducers/taskReducer";
+import { updateTaskAssignees, updateTaskDetails, deleteTask } from "@/redux/reducers/taskReducer";
+import DatePicker from "../input/DatePicker";
+import dayjs from "dayjs";
 
 type Props = {
   visible: boolean;
@@ -25,6 +27,16 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
 
   const handleChangeInput = (key: string, value: string) => {
     setTaskDetails({ ...taskDetails, [key]: value });
+  };
+
+  const handleSaveChanges = () => {
+    dispatch(updateTaskDetails({ taskId: task.id, details: taskDetails }));
+    setVisible(false);
+  };
+
+  const handleDeleteTask = () => {
+    dispatch(deleteTask(task.id));
+    setVisible(false);
   };
 
   return (
@@ -79,24 +91,20 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
               <label htmlFor="startDate" className="text-xs text-neutral-dark">
                 Başlangıç Tarihi
               </label>
-              <input
-                type="date"
-                id="startDate"
-                value={taskDetails.startDate}
-                onChange={(e) => handleChangeInput("startDate", e.target.value)}
-                className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              <DatePicker
+                defaultValue={taskDetails.startDate}
+                minDate={dayjs().format("YYYY-MM-DD")}
+                onChangeDate={(date) => handleChangeInput("startDate", date)}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="dueDate" className="text-xs text-neutral-dark">
                 Bitiş Tarihi
               </label>
-              <input
-                type="date"
-                id="dueDate"
-                value={taskDetails.dueDate}
-                onChange={(e) => handleChangeInput("dueDate", e.target.value)}
-                className="w-full p-2 border rounded-md text-sm text-neutral-dark"
+              <DatePicker
+                defaultValue={taskDetails.dueDate}
+                minDate={dayjs().format("YYYY-MM-DD")}
+                onChangeDate={(date) => handleChangeInput("dueDate", date)}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
@@ -107,18 +115,18 @@ const TaskEditModal: React.FC<Props> = ({ visible, setVisible, task }) => {
                 type="number"
                 id="storyPoints"
                 value={taskDetails.storyPoints}
-                onChange={(e) => handleChangeInput("storyPoint", e.target.value)}
+                onChange={(e) => handleChangeInput("storyPoints", e.target.value)}
                 className="w-full p-2 border rounded-md text-sm text-neutral-dark"
               />
             </div>
           </div>
         </div>
         <div className="flex items-center justify-end gap-2 mt-4">
-          <Button className="bg-danger/10">
+          <Button className="bg-danger/10" onClick={handleDeleteTask}>
             <TrashIcon className="text-md text-danger" />
             <span className="text-xs text-danger">Görevi Sil</span>
           </Button>
-          <Button className="bg-success/10">
+          <Button className="bg-success/10" onClick={handleSaveChanges}>
             <SaveIcon className="text-md text-success" />
             <span className="text-xs text-success">Değişiklikleri Kaydet</span>
           </Button>
