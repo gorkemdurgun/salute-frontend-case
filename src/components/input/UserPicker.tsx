@@ -44,7 +44,7 @@ const UserPicker: React.FC<Props> = ({ currentUsers, onChangeList }) => {
         <AddIcon className="text-md text-gray-800" />
       </Button>
       {visible && (
-        <div className="absolute top-10 left-0 w-[360px] bg-white border border-neutral-light rounded-md p-2 shadow-lg">
+        <div className="z-10 absolute top-10 left-0 w-[360px] bg-white border border-neutral-light rounded-md p-2 shadow-lg">
           <h3 className="text-xs text-neutral-dark mb-2">Proje Üyeleri</h3>
           <div className="max-h-[200px] overflow-y-auto">
             {projectUsers?.map((user, index) => {
@@ -54,7 +54,7 @@ const UserPicker: React.FC<Props> = ({ currentUsers, onChangeList }) => {
                   <input
                     type="checkbox"
                     checked={isSelected}
-                    className="w-4 h-4 border border-neutral-dark rounded-md"
+                    className="w-4 h-4 border border-neutral rounded-sm"
                     onChange={(e) => onChangeCheckbox(e, user)}
                   />
                   <Avatar alt="avatar" src={user.avatar} className="w-[24px] h-[24px]" />
