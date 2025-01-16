@@ -9,7 +9,6 @@ const HeaderDropdown: React.FC<Props> = ({ title, items, disabled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Menüyü kapatmak için dış tıklama kontrolü
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (

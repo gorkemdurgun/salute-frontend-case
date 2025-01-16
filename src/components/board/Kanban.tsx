@@ -7,8 +7,6 @@ import { useAppSelector } from '@/hooks';
 export default function Kanban() {
   const { list } = useAppSelector((state) => state.tasks);
 
-  // console.log("Kanban", list);
-
   return (
     <div className="flex flex-col">
       <div className="grid grid-cols-4 gap-4">
